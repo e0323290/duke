@@ -9,26 +9,40 @@ public class Duke {
      */
 
     public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<Task> arrayList = new ArrayList<Task>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello! I'm Duke \nWhat can I do for you?");
-        String inputString = scanner.nextLine();
+        // String inputString = scanner.nextLine();
 
-        int count = 0;
-        while(!inputString.equals("bye")) {
-            if(inputString.equals("list")) {
-                for(int i = 0; i < arrayList.size(); i++) {
-                    System.out.print(arrayList.get(i) + "\n");
+        while (true) {
+            String inputString = scanner.nextLine();
+            if (inputString.equals("list")) {
+                System.out.println("Here are the tasks in your list:" +
+                        "");
+                for (int i = 0; i < arrayList.size(); i++) {
+                    System.out.print(i + 1 + ".");
+                    System.out.println("[" + arrayList.get(i).getStatusIcon() + "] " + arrayList.get(i).getDescription());
                 }
-                inputString = scanner.nextLine();
+
+            } else if (inputString.equals("bye")){
+                System.out.println("Bye. Hope to see you again soon!");
+                break;
             }
-            else {
-                count++;
+            else if (inputString.contains("done")) {
+                String[] strings = inputString.split(" ");
+                System.out.println("Nice! I've marked this task as done: ");
+                for (String i : strings) {
+                    if(!i.equals("done")) {
+                        int index = Integer.parseInt(i) - 1;
+                        arrayList.get(index).markAsDone();
+                        System.out.println("[" + arrayList.get(index).getStatusIcon() + "] " + arrayList.get(index).getDescription());
+                    }
+                }
+            } else {
+                Task newTask = new Task(inputString);
+                arrayList.add(newTask);
                 System.out.println("added: " + inputString);
-                arrayList.add(count + ". " + inputString);
-                inputString = scanner.nextLine();
             }
         }
-        System.out.println("Bye. Hope to see you again soon!");
     }
 }

@@ -4,7 +4,6 @@ import java.lang.*;
 public class Duke {
     /**
      * Main class.
-     *
      * @param args empty
      */
 

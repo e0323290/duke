@@ -15,4 +15,5 @@ public class Deadline extends Task {
     public String getDescription() {
         return "[D]" + "[" + getStatusIcon() + "] " + super.getDescription() + " (by: " + by + ")";
     }
+
 }

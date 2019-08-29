@@ -17,6 +17,7 @@ public class Duke {
         ArrayList<Task> arrayList = new ArrayList<Task>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello! I'm Duke \nWhat can I do for you?");
+        // String inputString = scanner.nextLine();
 
         while (true) {
             String inputString = scanner.nextLine();
@@ -43,7 +44,6 @@ public class Duke {
                         int index = Integer.parseInt(i) - 1;
                         arrayList.get(index).markAsDone();
                         System.out.println(arrayList.get(index).getDescription());
-
                     }
                 }
 
@@ -51,6 +51,15 @@ public class Duke {
                 if (inputString.contains("todo")) {
                     String[] toDoString = inputString.split(" ");
                     List<String> myList = new ArrayList<String>(Arrays.asList(toDoString));
+                    try {
+                        if (myList.size() == 1) {
+                            throw new DukeException(" ☹ OOPS!!! The description of a todo cannot be empty.");
+                        }
+                    }
+                        catch(DukeException e) {
+                            System.out.println(e.getMessage());
+                            continue;
+                        }
 
                     myList.remove(0);
                     String description = String.join(" ", myList);
@@ -59,11 +68,18 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t" + toDo.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-
                 } else if (inputString.contains("deadline")) {
                     String[] deadlineString = inputString.split(" ");
                     List<String> myList = new ArrayList<String>(Arrays.asList(deadlineString));
-
+                    try {
+                        if (myList.size() == 1) {
+                            throw new DukeException(" ☹ OOPS!!! The description of a deadline cannot be empty.");
+                        }
+                    }
+                    catch(DukeException e) {
+                        System.out.println(e.getMessage());
+                        continue;
+                    }
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /by ");
@@ -73,11 +89,18 @@ public class Duke {
                     System.out.println("\t " + deadLine.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
 
-
                 } else if (inputString.contains("event")) {
                     String[] eventString = inputString.split(" ");
                     List<String> myList = new ArrayList<>(Arrays.asList(eventString));
-
+                    try {
+                        if (myList.size() == 1) {
+                            throw new DukeException(" ☹ OOPS!!! The description of a event cannot be empty.");
+                        }
+                    }
+                    catch(DukeException e) {
+                        System.out.println(e.getMessage());
+                        continue;
+                    }
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /at ");
@@ -87,9 +110,16 @@ public class Duke {
                     System.out.println("\t " + eVent.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
 
-
                 }
-
+                else {
+                    try {
+                        if (!inputString.matches("todo|deadline|task|list|event"))
+                            throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                    } catch (DukeException e) {
+                        System.out.println(e.getMessage());
+                        continue;
+                    }
+                }
             }
 
 

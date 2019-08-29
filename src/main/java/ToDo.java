@@ -13,7 +13,5 @@ public class ToDo extends Task {
 
     }
 
-    public String getFormat() {
-        return "T | " + getStatusIcon2() + " | " + super.getDescription();
-    }
+
 }

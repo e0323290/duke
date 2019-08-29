@@ -44,7 +44,7 @@ public class Duke {
                         int index = Integer.parseInt(i) - 1;
                         arrayList.get(index).markAsDone();
                         System.out.println(arrayList.get(index).getDescription());
-                        saveToFile(arrayList);
+
                     }
                 }
 
@@ -52,15 +52,6 @@ public class Duke {
                 if (inputString.contains("todo")) {
                     String[] toDoString = inputString.split(" ");
                     List<String> myList = new ArrayList<String>(Arrays.asList(toDoString));
-                    try {
-                        if (myList.size() == 1) {
-                            throw new DukeException(" ☹ OOPS!!! The description of a todo cannot be empty.");
-                        }
-                    }
-                        catch(DukeException e) {
-                            System.out.println(e.getMessage());
-                            continue;
-                        }
 
                     myList.remove(0);
                     String description = String.join(" ", myList);
@@ -69,19 +60,11 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t" + toDo.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+
                 } else if (inputString.contains("deadline")) {
                     String[] deadlineString = inputString.split(" ");
                     List<String> myList = new ArrayList<String>(Arrays.asList(deadlineString));
-                    try {
-                        if (myList.size() == 1) {
-                            throw new DukeException(" ☹ OOPS!!! The description of a deadline cannot be empty.");
-                        }
-                    }
-                    catch(DukeException e) {
-                        System.out.println(e.getMessage());
-                        continue;
-                    }
+
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /by ");
@@ -90,20 +73,12 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + deadLine.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+
 
                 } else if (inputString.contains("event")) {
                     String[] eventString = inputString.split(" ");
                     List<String> myList = new ArrayList<>(Arrays.asList(eventString));
-                    try {
-                        if (myList.size() == 1) {
-                            throw new DukeException(" ☹ OOPS!!! The description of a event cannot be empty.");
-                        }
-                    }
-                    catch(DukeException e) {
-                        System.out.println(e.getMessage());
-                        continue;
-                    }
+
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /at ");
@@ -112,36 +87,16 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + eVent.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+
 
                 }
-                else {
-                    try {
-                        if (!inputString.matches("todo|deadline|task|list|event"))
-                            throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
-                    } catch (DukeException e) {
-                        System.out.println(e.getMessage());
-                        continue;
-                    }
-                }
+
             }
 
 
         }
 
     }
-    // The function to save all the task into the textfile
-    public static void saveToFile(ArrayList<Task> taskList) {
-        File file = new File("C:\\Users\\ayh_j\\Documents\\duke\\dataTask.txt"); // Creating the textfile
-        try {
-            PrintWriter output = new PrintWriter(file);
-            for (Task x : taskList) {
-                output.println(x.getFormat());
-            }
-            output.close();
-        } catch (IOException ex) {
-            System.out.print("ERROR: Not Available");
-        }
-    }
+
 }
 

@@ -16,7 +16,5 @@ public class Deadline extends Task {
         return "[D]" + "[" + getStatusIcon() + "] " + super.getDescription() + " (by: " + by + ")";
     }
 
-    public String getFormat() {
-        return "D | " + getStatusIcon2() + " | " + super.getDescription() + " | " + by;
-    }
+
 }

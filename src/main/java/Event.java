@@ -14,5 +14,7 @@ public class Event extends Task{
         return "[E]" + "[" + getStatusIcon() + "] " + super.getDescription() + " (at: " + date  + ")";
     }
 
-
+    public String getFormat() {
+        return "E | " + getStatusIcon2() + " | " + super.getDescription() + " | " + date;
+    }
 }

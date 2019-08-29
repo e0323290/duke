@@ -85,7 +85,7 @@ public class Duke {
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /by ");
-                    Deadline deadLine = new Deadline(inputs[0], inputs[1]);
+                    Deadline deadLine = new Deadline(inputs[0], new ConvertDateTime().formatDateTime(inputs[1]));
                     arrayList.add(deadLine);
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + deadLine.getDescription());
@@ -107,7 +107,7 @@ public class Duke {
                     myList.remove(0);
                     String description = String.join(" ", myList);
                     String[] inputs = description.split(" /at ");
-                    Event eVent = new Event(inputs[0], inputs[1]);
+                    Event eVent = new Event(inputs[0], new ConvertDateTime().formatDateTime(inputs[1]));
                     arrayList.add(eVent);
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + eVent.getDescription());

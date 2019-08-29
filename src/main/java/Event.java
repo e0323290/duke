@@ -14,5 +14,4 @@ public class Event extends Task{
         return "[E]" + "[" + getStatusIcon() + "] " + super.getDescription() + " (at: " + date  + ")";
     }
 
-
 }

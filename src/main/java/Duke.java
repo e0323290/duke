@@ -17,7 +17,6 @@ public class Duke {
         ArrayList<Task> arrayList = new ArrayList<Task>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello! I'm Duke \nWhat can I do for you?");
-        // String inputString = scanner.nextLine();
 
         while (true) {
             String inputString = scanner.nextLine();

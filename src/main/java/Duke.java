@@ -28,9 +28,7 @@ public class Duke {
 
                 for (int i = 0; i < arrayList.size(); i++) {
 
-                    System.out.print(i + 1 + ".");
-
-                    System.out.println(arrayList.get(i).getDescription());
+                    System.out.println((i + 1) + "." + arrayList.get(i).getDescription());
                 }
 
             } else if (inputString.equals("bye")) {
@@ -126,7 +124,19 @@ public class Duke {
                             saveToFile(arrayList);
                         }
                     }
-
+                } else if (inputString.contains("find")) {
+                    String[] parts = inputString.split(" ", 2);
+                    String wordToBeFound = parts[1];
+                    System.out.println("Here are the matching tasks in your list: ");
+                    ArrayList<Task> wordFound = new ArrayList<>();
+                    for (Task i : arrayList) {
+                        if(i.getDescription().contains(wordToBeFound)) {
+                            wordFound.add(i);
+                        }
+                    }
+                    for(int i = 0; i < wordFound.size(); i++) {
+                        System.out.println((i + 1) + "." + wordFound.get(i).getDescription());
+                    }
                 }
                 else {
                     try {

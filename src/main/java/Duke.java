@@ -125,7 +125,7 @@ public class Duke {
                         }
                     }
                 } else if (inputString.contains("find")) {
-                    String[] parts = inputString.split(" ", 2);
+                    String[] parts = inputString.split(" ",2);
                     String wordToBeFound = parts[1];
                     System.out.println("Here are the matching tasks in your list: ");
                     ArrayList<Task> wordFound = new ArrayList<>();

@@ -1,2 +1,4 @@
-T | 1 | read book
-E | 0 | meeting | 5pm
+T | 0 | read book
+D | 0 | return book | 7pm
+E | 0 | buy book | 1pm
+T | 0 | meeting

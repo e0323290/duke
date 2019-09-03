@@ -114,6 +114,19 @@ public class Duke {
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
                     saveToFile(arrayList);
 
+                } else if (inputString.contains("delete")) {
+                    String[] strings = inputString.split(" ");
+                    System.out.println("Noted. I've removed this task: ");
+                    for (String i : strings) {
+                        if (!i.equals("delete")) {
+                            int index = Integer.parseInt(i) - 1;
+                            System.out.println("\t" + arrayList.get(index).getDescription());
+                            arrayList.remove(index);
+                            System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
+                            saveToFile(arrayList);
+                        }
+                    }
+
                 }
                 else {
                     try {

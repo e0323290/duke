@@ -1,0 +1,8 @@
+Hello! I'm Duke 
+What can I do for you?
+Here are the tasks in your list:
+1.[E][?] meeting  (at:  2)
+2.[D][?] return book  (by:  aug)
+3.[T][?] mjmf
+4.[T][?] rrer
+Bye. Hope to see you again soon!

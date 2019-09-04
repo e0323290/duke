@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Storage {
+
     // The function to save all the task into the textfile
     public static void saveToFile(ArrayList<Task> taskList) {
         File file = new File("C:\\Users\\ayh_j\\Documents\\duke\\dataTask.txt"); // Creating the textfile

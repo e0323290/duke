@@ -21,6 +21,7 @@ public class Duke {
         Storage storage = new Storage();
         storage.ReadFile(arrayList);
         while (true) {
+
             String inputString = scanner.nextLine();
             StringTokenizer split = new StringTokenizer(inputString);
             if (inputString.equals("list")) {
@@ -89,6 +90,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + deadLine.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
+
                     storage.saveToFile(arrayList);
 
                 } else if (inputString.contains("event")) {
@@ -111,6 +113,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + eVent.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
+
                     storage.saveToFile(arrayList);
 
                 } else if (inputString.contains("delete")) {
@@ -122,6 +125,7 @@ public class Duke {
                             System.out.println("\t" + arrayList.get(index).getDescription());
                             arrayList.remove(index);
                             System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
+
                             storage.saveToFile(arrayList);
                         }
                     }

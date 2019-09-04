@@ -44,6 +44,7 @@ public class Duke {
                         int index = Integer.parseInt(i) - 1;
                         arrayList.get(index).markAsDone();
                         System.out.println(arrayList.get(index).getDescription());
+
                         storage.saveToFile(arrayList);
                     }
                 }
@@ -69,6 +70,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t" + toDo.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
+
                     storage.saveToFile(arrayList);
                 } else if (inputString.contains("deadline")) {
                     String[] deadlineString = inputString.split(" ");
@@ -113,10 +115,9 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + eVent.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-
                     storage.saveToFile(arrayList);
 
-                } else if (inputString.contains("delete")) {
+                } else if (inputString.contains("delete")) { //delete unwanted errands from list
                     String[] strings = inputString.split(" ");
                     System.out.println("Noted. I've removed this task: ");
                     for (String i : strings) {
@@ -125,15 +126,15 @@ public class Duke {
                             System.out.println("\t" + arrayList.get(index).getDescription());
                             arrayList.remove(index);
                             System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-
                             storage.saveToFile(arrayList);
                         }
                     }
-                } else if (inputString.contains("find")) {
+                } else if (inputString.contains("find")) { //find a keyword from list
                     String[] parts = inputString.split(" ",2);
                     String wordToBeFound = parts[1];
                     System.out.println("Here are the matching tasks in your list: ");
                     ArrayList<Task> wordFound = new ArrayList<>();
+
                     for (Task i : arrayList) {
                         if(i.getDescription().contains(wordToBeFound)) {
                             wordFound.add(i);
@@ -153,11 +154,7 @@ public class Duke {
                     }
                 }
             }
-
-
         }
-
     }
-
 }
 

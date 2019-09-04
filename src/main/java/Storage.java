@@ -16,6 +16,8 @@ public class Storage {
             System.out.print("ERROR: Not Available");
         }
     }
+
+    // The function to read in textfiles from dataTask.txt
     public void ReadFile(ArrayList<Task> arr) {
         BufferedReader br = null;
         String line;

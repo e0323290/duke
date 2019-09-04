@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ConvertDateTime {
+    //dates and times converter
     public String formatDateTime(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HHmm");
         Date newDate = new Date();

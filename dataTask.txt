@@ -1,4 +1,0 @@
-E | 1 | meeting  |  2
-D | 1 | return book  |  aug
-T | 1 | mjmf
-T | 0 | rrer

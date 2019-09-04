@@ -1,4 +1,4 @@
-T | 0 | read book
-D | 0 | return book | 7pm
-E | 0 | buy book | 1pm
-T | 0 | meeting
+E | 1 | meeting  |  2
+D | 1 | return book  |  aug
+T | 1 | mjmf
+T | 0 | rrer

@@ -18,7 +18,8 @@ public class Duke {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello! I'm Duke \nWhat can I do for you?");
         // String inputString = scanner.nextLine();
-
+        Storage storage = new Storage();
+        storage.ReadFile(arrayList);
         while (true) {
             String inputString = scanner.nextLine();
             StringTokenizer split = new StringTokenizer(inputString);
@@ -42,7 +43,7 @@ public class Duke {
                         int index = Integer.parseInt(i) - 1;
                         arrayList.get(index).markAsDone();
                         System.out.println(arrayList.get(index).getDescription());
-                        saveToFile(arrayList);
+                        storage.saveToFile(arrayList);
                     }
                 }
 
@@ -67,7 +68,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t" + toDo.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+                    storage.saveToFile(arrayList);
                 } else if (inputString.contains("deadline")) {
                     String[] deadlineString = inputString.split(" ");
                     List<String> myList = new ArrayList<String>(Arrays.asList(deadlineString));
@@ -88,7 +89,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + deadLine.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+                    storage.saveToFile(arrayList);
 
                 } else if (inputString.contains("event")) {
                     String[] eventString = inputString.split(" ");
@@ -110,7 +111,7 @@ public class Duke {
                     System.out.println("Got it. I've added this task: ");
                     System.out.println("\t " + eVent.getDescription());
                     System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                    saveToFile(arrayList);
+                    storage.saveToFile(arrayList);
 
                 } else if (inputString.contains("delete")) {
                     String[] strings = inputString.split(" ");
@@ -121,7 +122,7 @@ public class Duke {
                             System.out.println("\t" + arrayList.get(index).getDescription());
                             arrayList.remove(index);
                             System.out.println("Now you have " + arrayList.size() + " tasks in the list.");
-                            saveToFile(arrayList);
+                            storage.saveToFile(arrayList);
                         }
                     }
                 } else if (inputString.contains("find")) {
@@ -153,18 +154,6 @@ public class Duke {
         }
 
     }
-    // The function to save all the task into the textfile
-    public static void saveToFile(ArrayList<Task> taskList) {
-        File file = new File("C:\\Users\\ayh_j\\Documents\\duke\\dataTask.txt"); // Creating the textfile
-        try {
-            PrintWriter output = new PrintWriter(file);
-            for (Task x : taskList) {
-                output.println(x.getFormat());
-            }
-            output.close();
-        } catch (IOException ex) {
-            System.out.print("ERROR: Not Available");
-        }
-    }
+
 }
 

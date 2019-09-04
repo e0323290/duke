@@ -135,6 +135,8 @@ public class Duke {
                     System.out.println("Here are the matching tasks in your list: ");
                     ArrayList<Task> wordFound = new ArrayList<>();
 
+
+                    
                     for (Task i : arrayList) {
                         if(i.getDescription().contains(wordToBeFound)) {
                             wordFound.add(i);

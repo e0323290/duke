@@ -1,14 +1,25 @@
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Save the tasks in the hard-coded location and file name in
+ * the hard disk automatically whenever the task list changes.
+ * Load the data from the hard disk when Duke starts up.
+ */
 public class Storage {
     private ArrayList<Task> arrayList;
 
+    /**
+     * @param inputList list to be saved
+     */
     public Storage(ArrayList<Task> inputList) {
         arrayList = inputList;
     }
 
-    // The function to save all the task into the textfile
+    /**
+     * The method saves the list of tasks into the text file
+     */
+    // The function to save all the task into the text file
     public void saveToFile() {
         File file = new File("C:\\Users\\ayh_j\\Documents\\duke\\dataTask.txt"); // Creating the textfile
         try {
@@ -22,7 +33,11 @@ public class Storage {
         }
     }
 
-    // The function to read in textfiles from dataTask.txt
+    /**
+     * The method reads in the text files
+     * @return the text that is read in from the saved text files
+     */
+    // The function to read in text files from dataTask.txt
     public ArrayList<Task> ReadFile() {
         //arrayList = new ArrayList<>(100);
         BufferedReader br = null;

@@ -1,6 +1,9 @@
 import java.util.*;
 import java.util.regex.Pattern;
 
+/**
+ * The main code
+ */
 public class Duke {
     private Ui ui;
     private Storage storage;
@@ -8,6 +11,9 @@ public class Duke {
     private ArrayList<Task> arrayList;
     private Parser parser;
 
+    /**
+     * This is a constructor for class Duke
+     */
     public Duke() {
         arrayList = new ArrayList<>(100);
         ui = new Ui();
@@ -16,6 +22,9 @@ public class Duke {
         parser = new Parser(tasks, storage);
     }
 
+    /**
+     * Actions that are carried out when programme is run
+     */
     public void run() {
         arrayList = storage.ReadFile();
         ui.showWelcome();
@@ -40,6 +49,11 @@ public class Duke {
 
     }
 
+    /**
+     * This method carries out the method run()
+     *
+     * @param args string array that holds the descriptions
+     */
     public static void main(String[] args) {
         new Duke().run();
     }

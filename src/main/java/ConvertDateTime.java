@@ -3,8 +3,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Converts the format of date and time (e.g. converts 2/12/2019 1800 to 2nd of December 2019, 6pm)
+ */
+
 public class ConvertDateTime {
     //dates and times converter
+
+    /**
+     * Converts the format of date and time (e.g. converts 2/12/2019 1800 to 2nd of December 2019, 6pm)
+     * @param date date of the deadline of task to be completed by, or the date of the event
+     * @return date and time in the required format
+     */
     public String formatDateTime(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HHmm");
         Date newDate = new Date();

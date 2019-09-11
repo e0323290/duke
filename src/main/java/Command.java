@@ -3,11 +3,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ *
+ */
 public class Command {
     private Storage storage;
     private String type;
     private Tasklist tasklist;
 
+    /**
+     *
+     * @param inputStorage
+     * @param inputType
+     * @param tasklist
+     */
     public Command(Storage inputStorage, String inputType, Tasklist tasklist) {
          this.tasklist = tasklist;
          storage = inputStorage;
@@ -15,6 +24,12 @@ public class Command {
 
         }
 
+    /**
+     * This method adds todo tasks to the list of tasks when called and
+     * outputs an error if nothing follows up the word "todo"
+     *
+     * @param inputString
+     */
     public void addToDo(String inputString) {
             String[] toDoString = inputString.split(" ");
             List<String> myList = new ArrayList<String>(Arrays.asList(toDoString));
@@ -36,7 +51,11 @@ public class Command {
             }
         }
 
-
+    /**
+     * This method marks a task as done and change the status icon from incomplete to completed
+     *
+     * @param inputString
+     */
     public void donezo(String inputString) {
         String[] strings = inputString.split(" ");
         System.out.println("Nice! I've marked this task as done: ");
@@ -51,7 +70,12 @@ public class Command {
         }
     }
 
-
+    /**
+     * This method adds deadline tasks to the list of tasks when called and
+     * outputs an error if nothing follows up the word "deadline"
+     *
+     * @param inputString
+     */
     public void addDeadline(String inputString) {
             String[] deadlineString = inputString.split(" ");
             List<String> myList = new ArrayList<String>(Arrays.asList(deadlineString));
@@ -74,6 +98,12 @@ public class Command {
             }
         }
 
+    /**
+     * This method adds event tasks to the list of tasks when called and
+     * outputs an error if nothing follows up the word "event"
+     *
+     * @param inputString
+     */
     public void addEvent(String inputString) {
         String[] eventString = inputString.split(" ");
         List<String> myList = new ArrayList<>(Arrays.asList(eventString));
@@ -95,6 +125,12 @@ public class Command {
         }
     }
 
+    /**
+     * This method deletes any tasks from the task list when the task number in the list is called
+     * after the word "delete"
+     *
+     * @param inputString
+     */
     public void deleteFromList(String inputString) {
         String[] strings = inputString.split(" ");
         System.out.println("Noted. I've removed this task: ");
@@ -109,7 +145,12 @@ public class Command {
         }
     }
 
-
+    /**
+     * This method finds tasks that contains a specific keyword and outputs
+     * that task description in a list
+     *
+     * @param inputString
+     */
     public void findFromList(String inputString) {
             String[] parts = inputString.split(" ", 2);
             String wordToBeFound = parts[1];
@@ -126,6 +167,10 @@ public class Command {
             }
         }
 
+    /**
+     * This method detects the task called and carries out the respective method
+     *
+     */
     public void execute() {
         String[] tokens = type.split(Pattern.quote(" "));
         if(tokens[0].equals("todo")) {

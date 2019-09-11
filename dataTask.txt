@@ -1,2 +1,0 @@
-T | 1 | read book
-D | 0 | return book | 1st of February 2019, 10am

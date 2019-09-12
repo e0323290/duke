@@ -1,0 +1,4 @@
+D | 0 | borrow book  |  12th of December 2019, 7pm
+D | 0 | buy food | 12/10/2018
+D | 0 | buy food | aug
+D | 0 | d | s
